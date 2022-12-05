@@ -1,7 +1,7 @@
 <template>
   <h3>html编辑器</h3>
-  <textarea class="textarea" v-model="htmlText" />
-  <h3>html容器</h3>
+  <textarea class="textarea" v-model="htmlText" autofocus/>
+  <h3>html预览</h3>
   <div class="invite_cls" ref="imageDom" id="imageDomId" v-html="htmlText">
   </div>
   <div>
@@ -21,7 +21,24 @@ export default {
   data() {
     return {
       imgSrc: '',
-      htmlText: `<div class="circle"><p style="line-height: 100px;margin: 0">hello</p></div>`
+      htmlText: ` <div class="container">
+    <div class="circle">hello</div>
+  </div>  
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30vh;
+    }
+    .circle {
+      height: 100px;
+      width: 100px;
+      line-height: 100px;
+      border: 1px solid red;
+      border-radius: 50%;
+    }
+  </style>`
     }
   },
   methods: {
@@ -62,24 +79,13 @@ export default {
 </script>
 <style>
 .textarea {
-  width: 80vw;
-  min-height: 15vh;
+  width: 100%;
+  min-height: 29vh;
 }
 
 .invite_cls {
   border: 1px solid gray;
-  width: 80vw;
   min-height: 30vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle {
-  height: 100px;
-  width: 100px;
-  border: 1px solid red;
-  border-radius: 50%;
 }
 
 .btn_text {
@@ -87,6 +93,6 @@ export default {
 }
 
 .btn_img {
-  width: 80vw;
+  width: 100%;
 }
 </style>
