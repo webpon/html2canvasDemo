@@ -28,7 +28,6 @@ export default {
     saveQRImg() {    // 保存二维码图片
       // 获取要生成图片的 DOM 元素
       let canvasDom = this.$refs.imageDom
-      b
       const options = {
         scale: 8, //按比例增加分辨率 (2=双倍)
         dpi: window.devicePixelRatio * 8, //设备像素比
